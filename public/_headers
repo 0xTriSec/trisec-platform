@@ -1,0 +1,13 @@
+# Security Headers for GitHub Pages
+# Copy this file to your out/ directory before deploying to GitHub Pages
+# Or configure it in GitHub Pages settings
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://giscus.app https://0xtrisec.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://picsum.photos https://*.picsum.photos https://0xtrisec.com; media-src 'self'; connect-src 'self' https://giscus.app https://0xtrisec.com; font-src 'self' data:; frame-src https://giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-DNS-Prefetch-Control: on
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  X-XSS-Protection: 1; mode=block

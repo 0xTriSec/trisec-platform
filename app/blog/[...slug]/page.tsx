@@ -4,7 +4,7 @@ import 'katex/dist/katex.css'
 import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
+import { sortPosts, coreContent, allCoreContent, CoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs, allAuthors } from 'contentlayer/generated'
 import type { Authors, Blog } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
@@ -28,12 +28,12 @@ export async function generateMetadata(props: {
   const slug = decodeURI(params.slug.join('/'))
   const post = allBlogs.find((p) => p.slug === slug)
   const authorList = post?.authors || ['default']
-  const authorDetails = authorList
+  const authorDetails: CoreContent<Authors>[] = authorList
     .map((author) => {
       const authorResults = allAuthors.find((p) => p.slug === author)
       return authorResults ? coreContent(authorResults as Authors) : null
     })
-    .filter(Boolean) as CoreContent<Authors>[]
+    .filter((author): author is CoreContent<Authors> => author !== null)
   if (!post) {
     return
   }
