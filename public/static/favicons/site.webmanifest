@@ -1,0 +1,14 @@
+{
+  "name": "0xTrisec-Blog",
+  "short_name": "0xTrisec",
+  "icons": [
+    {
+      "src": "/static/favicons/0xTrisec_logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone"
+}
